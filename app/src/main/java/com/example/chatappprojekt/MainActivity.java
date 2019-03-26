@@ -2,22 +2,32 @@ package com.example.chatappprojekt;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.firebase.ui.auth.AuthUI;
+
+
+
 
 
 public class MainActivity extends AppCompatActivity {
 
+
     private FirebaseAuth mAuth;
     @Override
-    protected void onCreate() {
+    public void onCreate() {
+        int SIGN_IN_REQUEST_CODE = 10;
         super.onCreate();
-        setContentView(R.layout.activity_main);
         if(FirebaseAuth.getInstance().getCurrentUser() == null) {
             // Start sign in/sign up activity
             startActivityForResult(
                     AuthUI.getInstance()
                             .createSignInIntentBuilder()
                             .build(),
-                    SIGN_IN_REQUEST_CODE
+                    SIGN_IN_REQUEST_CODE = 10
             );
         } else {
             // User is already signed in. Therefore, display
