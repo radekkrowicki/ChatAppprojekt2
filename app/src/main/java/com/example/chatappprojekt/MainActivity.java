@@ -15,12 +15,15 @@ import com.firebase.ui.auth.AuthUI;
 
 public class MainActivity extends AppCompatActivity {
 
+    private void displayChatMessages()
+    {
 
+    }
     private FirebaseAuth mAuth;
-    @Override
-    public void onCreate() {
+
+    public void onCreate(Bundle savedInstanceState) {
         int SIGN_IN_REQUEST_CODE = 10;
-        super.onCreate();
+        super.onCreate(savedInstanceState);
         if(FirebaseAuth.getInstance().getCurrentUser() == null) {
             // Start sign in/sign up activity
             startActivityForResult(
